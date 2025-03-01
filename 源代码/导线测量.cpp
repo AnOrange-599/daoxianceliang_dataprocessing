@@ -4,88 +4,101 @@ using namespace std;
 
 int main2() {
     cout << setprecision(15);
-    // ÊäÈëÆğÊ¼Á½µã×ø±ê
-    cout << "ÊäÈëÆğÊ¼Á½µãµÄN E×ø±ê£¬ÊäÈëË³Ğò×¢ÒâÓëĞĞ½ø·½Ïò±£³ÖÒ»ÖÂ" << endl;
-    double ori_n_2, ori_e_2, ori_n_1, ori_e_1;  //ÆğÊ¼µã1¡¢2×ø±ê
+    // è¾“å…¥èµ·å§‹ä¸¤ç‚¹åæ ‡
+    cout << "è¾“å…¥èµ·å§‹ä¸¤ç‚¹çš„N Eåæ ‡ï¼Œè¾“å…¥é¡ºåºæ³¨æ„ä¸è¡Œè¿›æ–¹å‘ä¿æŒä¸€è‡´" << endl;
+    double ori_n_2, ori_e_2, ori_n_1, ori_e_1;  //èµ·å§‹ç‚¹1ã€2åæ ‡
     cin >> ori_n_1 >> ori_e_1 >> ori_n_2 >> ori_e_2;
-    double origin;  // ÆğÊ¼·½Î»½Ç
+    double origin;  // èµ·å§‹æ–¹ä½è§’
     origin = atan2((ori_e_2 - ori_e_1) , (ori_n_2 - ori_n_1));
-    //ÆğÊ¼·½Î»½ÇÊÇatan(E(ºó-Ç°)/N(ºó-Ç°))
-    DMS originDMS = radians_to_DMS(origin); // Õâ¸ö¾ÍÊÇÆğÊ¼·½Î»½ÇµÄDMS
-    // ori_n_2, ori_e_2ÊÇÆğËãµã×ø±ê
+    //èµ·å§‹æ–¹ä½è§’æ˜¯atan(E(å-å‰)/N(å-å‰))
+    DMS originDMS = radians_to_DMS(origin); // è¿™ä¸ªå°±æ˜¯èµ·å§‹æ–¹ä½è§’çš„DMS
+    // ori_n_2, ori_e_2æ˜¯èµ·ç®—ç‚¹åæ ‡
     
-    cout << "±ÕºÏµ¼Ïß»òÕß¸½ºÍµ¼ÏßÊäÈëÖÕµãÁ½µãµÄN E×ø±ê£¬ÊäÈëË³Ğò×¢ÒâÓëĞĞ½ø·½Ïò±£³ÖÒ»ÖÂ" << endl;
+    cout << "é—­åˆå¯¼çº¿æˆ–è€…é™„å’Œå¯¼çº¿è¾“å…¥ç»ˆç‚¹ä¸¤ç‚¹çš„N Eåæ ‡ï¼Œè¾“å…¥é¡ºåºæ³¨æ„ä¸è¡Œè¿›æ–¹å‘ä¿æŒä¸€è‡´" << endl;
     double end_n_1, end_e_1, end_n_2, end_e_2;
     cin >> end_n_1 >> end_e_1 >> end_n_2 >> end_e_2;
     double end;
-    end = atan2((end_e_2 - end_e_1) , (end_n_2 - end_n_1)); // ÖÕ±ß·½Î»½Ç
-    DMS endDMS = radians_to_DMS(end); // Õâ¸öÊÇÖÕ±ß·½Î»½Ç
+    end = atan2((end_e_2 - end_e_1) , (end_n_2 - end_n_1)); // ç»ˆè¾¹æ–¹ä½è§’
+    DMS endDMS = radians_to_DMS(end); // è¿™ä¸ªæ˜¯ç»ˆè¾¹æ–¹ä½è§’
     //double end_n_2, end_e_2;
 
-    vector<DMS> gcj_data; // Ê¹ÓÃvector¶¯Ì¬Êı×é£¬¹Û²â½ÇÊı¾İ
-    int count = 0;  //¼ÇÂ¼ÏÂÊäÈëÁË¶àÉÙ¸ö×ó½Ç£¬¾ÍÊÇ²âÁË¶àÉÙÕ¾£¨Õ¾£¡Õ¾£¡Õ¾£¡²»ÊÇ µã£¡£©
-    cout << "ÊäÈëËù²âµÄ×ó½Ç£¬ÊäÈë2227Ê±ËµÃ÷ÊäÈë½áÊø\n\nÕâ¸ö×ó½ÇÊÇÆ½¾ù¹ıµÄ£¬Èç¹û»¹Ã»Æ½¾ù£¬ÏÈÓÃ¡°½Ç¶È´¦Àí¡±Ñ¡Ïî" << endl;
-    while (1) { //ÊäÈë×ó½ÇµÄº¯Êı£¬Õâ¸ö×ó½ÇÊÇÆ½¾ù¹ıµÄ£¬Èç¹û»¹Ã»Æ½¾ù£¬ÏÈÓÃ¡°½Ç¶È´¦Àí¡±Ñ¡Ïî
+    vector<DMS> gcj_data; // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„ï¼Œè§‚æµ‹è§’æ•°æ®
+    int count = 0;  //è®°å½•ä¸‹è¾“å…¥äº†å¤šå°‘ä¸ªå·¦è§’ï¼Œå°±æ˜¯æµ‹äº†å¤šå°‘ç«™ï¼ˆç«™ï¼ç«™ï¼ç«™ï¼ä¸æ˜¯ ç‚¹ï¼ï¼‰
+    cout << "è¾“å…¥æ‰€æµ‹çš„å·¦è§’ï¼Œè¾“å…¥2227æ—¶è¯´æ˜è¾“å…¥ç»“æŸ\n\nè¿™ä¸ªå·¦è§’æ˜¯å¹³å‡è¿‡çš„ï¼Œå¦‚æœè¿˜æ²¡å¹³å‡ï¼Œå…ˆç”¨â€œè§’åº¦å¤„ç†â€é€‰é¡¹" << endl;
+    while (1) { //è¾“å…¥å·¦è§’çš„å‡½æ•°ï¼Œè¿™ä¸ªå·¦è§’æ˜¯å¹³å‡è¿‡çš„ï¼Œå¦‚æœè¿˜æ²¡å¹³å‡ï¼Œå…ˆç”¨â€œè§’åº¦å¤„ç†â€é€‰é¡¹
         int a, b, c;
         cin >> a;
-        if (a == 2227) { // Ê¹ÓÃ2227×÷ÎªÊäÈë½áÊøµÄ±ê¼Ç
+        if (a == 2227) { // ä½¿ç”¨2227ä½œä¸ºè¾“å…¥ç»“æŸçš„æ ‡è®°
             break;
         }
         cin >> b >> c;
-        gcj_data.push_back(DMS(a, b, c)); // Ê¹ÓÃpush_backÌí¼ÓÔªËØ
+        gcj_data.push_back(DMS(a, b, c)); // ä½¿ç”¨push_backæ·»åŠ å…ƒç´ 
         count++;
     }
 
-    // ĞèÒªÓĞ×Ô¶¯·ÖÅä¸ÄÕıÊı
-    DMS sum(0, 0, 0);   //½Ç¶È×ÜºÍ
+    // éœ€è¦æœ‰è‡ªåŠ¨åˆ†é…æ”¹æ­£æ•°
+    DMS sum(0, 0, 0);   //è§’åº¦æ€»å’Œ
     for (int i = 0; i < count; i++) {
         sum = addDMS(gcj_data[i], sum);
-    } // ÏÈÇóºÍ
+    } // å…ˆæ±‚å’Œ
     
-    
-    int bhc;    // ¼ÆËã±ÕºÏ²î
+    int bhc;    // è®¡ç®—é—­åˆå·®
     bhc = subtractS(sum, DMS(((count - 2) * 180), 0, 0)) + subtractS(originDMS, endDMS);
-    // ËäÈ»ÎÒ²»ÄÜÀí½âÕâÀïÎªÊ²Ã´ÊÇ(¹Û²â½Ç¸öÊı-2)£¬µ«¼ÆËã¹«Ê½È·ÊµÊÇÕâÑù
-    // ·ÖÅä¸ÄÕıÊıÊ±²»ÄÜÓÃsubstractº¯Êı£¬ÒòÎª-4Ãë»á±ä³É59·Ö56Ãë£¬Ctrl+µã»÷£¬²é¿´subtractSµÄ¶¨Òå
-    cout << "ÏÈ¸øÄãÊä³ö¸ö±ÕºÏ²î£¬¿´¿´ÓĞÃ»ÓĞ³¬ÏŞ" << endl;
-    cout << "ÕâÊÇ±ÕºÏ²î" << endl;
+    // è™½ç„¶æˆ‘ä¸èƒ½ç†è§£è¿™é‡Œä¸ºä»€ä¹ˆæ˜¯(è§‚æµ‹è§’ä¸ªæ•°-2)ï¼Œä½†è®¡ç®—å…¬å¼ç¡®å®æ˜¯è¿™æ ·
+    // TODO: å‘ç°é™„åˆå¯¼çº¿å’Œé—­åˆå¯¼çº¿ç«Ÿç„¶æ˜¯ä¸åŒçš„è®¡ç®—æ–¹æ³•ï¼
+    if (abs(bhc) > 7200) {
+        for (int ind = 0; ind < 3; ind++) {
+            if (bhc > 0) {
+                bhc -= 180 * 3600;
+            }
+            else {
+                bhc += 180 * 3600;
+            }
+            if (abs(bhc) < 7200)// ç›´åˆ°å°äº2åº¦ï¼Œæ‰é€€å‡ºå¾ªç¯
+                break;
+        }
+    }
+    
+    // åˆ†é…æ”¹æ­£æ•°æ—¶ä¸èƒ½ç”¨substractå‡½æ•°ï¼Œå› ä¸º-4ç§’ä¼šå˜æˆ59åˆ†56ç§’ï¼ŒCtrl+ç‚¹å‡»ï¼ŒæŸ¥çœ‹subtractSçš„å®šä¹‰
+    cout << "å…ˆç»™ä½ è¾“å‡ºä¸ªé—­åˆå·®ï¼Œçœ‹çœ‹æœ‰æ²¡æœ‰è¶…é™" << endl;
+    cout << "è¿™æ˜¯é—­åˆå·®" << endl;
     cout << bhc << endl;
 
-    cout << "¹²ÓĞ¼¸Õ¾£º" << count << endl;
-    cout << "È«²¿Ïà¼Ó" << endl;
+    cout << "å…±æœ‰å‡ ç«™ï¼š" << count << endl;
+    cout << "å…¨éƒ¨ç›¸åŠ " << endl;
     output(sum);
-    // ±ÕºÏ²îÓĞÁË£¬¿ªÊ¼·ÖÅä¸ÄÕıÊı£¬·ÖÕı¸ºÁ½ÖÖÇé¿ö
-    vector<int> gaizhengshu(count); // Ê¹ÓÃvector¶¯Ì¬Êı×é
+    // é—­åˆå·®æœ‰äº†ï¼Œå¼€å§‹åˆ†é…æ”¹æ­£æ•°ï¼Œåˆ†æ­£è´Ÿä¸¤ç§æƒ…å†µ
+    vector<int> gaizhengshu(count); // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„
 
 
-#pragma region ±ÕºÏ²î·ÖÅäĞ´µÄÒ»Ûç£¬ÄÜÔËĞĞÕæÊÇÆæ¼£
+#pragma region é—­åˆå·®åˆ†é…å†™çš„ä¸€å¨ï¼Œèƒ½è¿è¡ŒçœŸæ˜¯å¥‡è¿¹
     if (bhc > 0) {
         int v1, v2;
-        v1 = bhc / count; // ÏÈ°ÑÕûÊı¶¼¸ø·ÖÅäÁË
-        v2 = bhc % count; // ÔÙ·ÖÅäÓàÊı
+        v1 = bhc / count; // å…ˆæŠŠæ•´æ•°éƒ½ç»™åˆ†é…äº†
+        v2 = bhc % count; // å†åˆ†é…ä½™æ•°
         for (int i1 = 0; i1 < count; i1++) {
             gcj_data[i1] = subtractDMS(gcj_data[i1], DMS(0, 0, v1));
         }
-        // ÎªÁË±È´óĞ¡£¬È«²¿°Ñ¶È·ÖÃë×ª»¯Îª»¡¶ÈÖÆ£¬È»ºóÕÒ³ö×î´óµÄv2¸öµÄÏÂ±ê
-        vector<double> select(count); // Ê¹ÓÃvector¶¯Ì¬Êı×é
+        // ä¸ºäº†æ¯”å¤§å°ï¼Œå…¨éƒ¨æŠŠåº¦åˆ†ç§’è½¬åŒ–ä¸ºå¼§åº¦åˆ¶ï¼Œç„¶åæ‰¾å‡ºæœ€å¤§çš„v2ä¸ªçš„ä¸‹æ ‡
+        vector<double> select(count); // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„
         for (int i1 = 0; i1 < count; i1++) {
             select[i1] = change(gcj_data[i1]);
         }
-        // ÕÒ³öv2¸ö×î´óµÄÊıµÄÏÂ±ê£¬²¢´æÔÚÒ»¸öÊı×é
-        vector<double> arr(count); // Ê¹ÓÃvector¶¯Ì¬Êı×é
+        // æ‰¾å‡ºv2ä¸ªæœ€å¤§çš„æ•°çš„ä¸‹æ ‡ï¼Œå¹¶å­˜åœ¨ä¸€ä¸ªæ•°ç»„
+        vector<double> arr(count); // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„
         for (int i1 = 0; i1 < count; i1++) {
             arr[i1] = select[i1];
         }
-        vector<int> indices(v2); // Ê¹ÓÃvector¶¯Ì¬Êı×é
+        vector<int> indices(v2); // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„
         for (int i = 0; i < v2; ++i) {
             indices[i] = -1;
         }
         for (int i = 0; i < count; ++i) {
-            bool replaced = false; // ±ê¼ÇÊÇ·ñÌæ»»ÁËindicesÖĞµÄÔªËØ
+            bool replaced = false; // æ ‡è®°æ˜¯å¦æ›¿æ¢äº†indicesä¸­çš„å…ƒç´ 
             for (int j = 0; j < v2; ++j) {
-                // Èç¹ûindices[j]ÊÇ¿ÕµÄ£¬»òÕßµ±Ç°ÔªËØ±Èindices[j]Ö¸ÏòµÄÔªËØ´ó
+                // å¦‚æœindices[j]æ˜¯ç©ºçš„ï¼Œæˆ–è€…å½“å‰å…ƒç´ æ¯”indices[j]æŒ‡å‘çš„å…ƒç´ å¤§
                 if (indices[j] == -1 || arr[i] > arr[indices[j]]) {
-                    // ½«indicesÊı×éÖĞµÄÔªËØÏòºóÒÆ¶¯Ò»Î»£¨Èç¹ûĞèÒªµÄ»°£©
+                    // å°†indicesæ•°ç»„ä¸­çš„å…ƒç´ å‘åç§»åŠ¨ä¸€ä½ï¼ˆå¦‚æœéœ€è¦çš„è¯ï¼‰
                     for (int k = v2 - 1; k > j; --k) {
                         indices[k] = indices[k - 1];
                     }
@@ -95,7 +108,7 @@ int main2() {
                 }
             }
         }
-        // Ğ´Ò»¸ö¸ÄÕıÊı£¬ºóÃæ»¹ÒªÊä³ö
+        // å†™ä¸€ä¸ªæ”¹æ­£æ•°ï¼Œåé¢è¿˜è¦è¾“å‡º
         for (int i2 = 0; i2 < count; i2++) {
             gaizhengshu[i2] = -v1;
             for (int i3 = 0; i3 < v2; i3++) {
@@ -106,40 +119,40 @@ int main2() {
             }
         }
 
-        for (int i1 = 0; i1 < v2; i1++) { // ÕÒ³ö×î´óµÄÕâv2¸ö½Ç£¬È»ºó·ÖÅä³ı²»¾¡µÄÃë
+        for (int i1 = 0; i1 < v2; i1++) { // æ‰¾å‡ºæœ€å¤§çš„è¿™v2ä¸ªè§’ï¼Œç„¶ååˆ†é…é™¤ä¸å°½çš„ç§’
             gcj_data[indices[i1]] = subtractDMS(gcj_data[indices[i1]], DMS(0, 0, 1));
         }
     }
 
-    // Ğ´¸ºÊıµÄÇé¿ö£¬ÏÈ°Ñ¸ºÊı¸Ä³ÉÕıµÄ£¬È»ºó¼Ó±ä³É¼õ
+    // å†™è´Ÿæ•°çš„æƒ…å†µï¼Œå…ˆæŠŠè´Ÿæ•°æ”¹æˆæ­£çš„ï¼Œç„¶ååŠ å˜æˆå‡
     else {
         bhc = -bhc;
         int v1, v2;
-        v1 = bhc / count; // ÏÈ°ÑÕûÊı¶¼¸ø·ÖÅäÁË
-        v2 = bhc % count; // ÔÙ·ÖÅäÓàÊı
+        v1 = bhc / count; // å…ˆæŠŠæ•´æ•°éƒ½ç»™åˆ†é…äº†
+        v2 = bhc % count; // å†åˆ†é…ä½™æ•°
         for (int i1 = 0; i1 < count; i1++) {
             gcj_data[i1] = addDMS(gcj_data[i1], DMS(0, 0, v1));
         }
-        // ÎªÁË±È´óĞ¡£¬È«²¿°Ñ¶È·ÖÃë×ª»¯Îª»¡¶ÈÖÆ£¬È»ºóÕÒ³ö×î´óµÄv2¸öµÄÏÂ±ê
-        vector<double> select(count); // Ê¹ÓÃvector¶¯Ì¬Êı×é
+        // ä¸ºäº†æ¯”å¤§å°ï¼Œå…¨éƒ¨æŠŠåº¦åˆ†ç§’è½¬åŒ–ä¸ºå¼§åº¦åˆ¶ï¼Œç„¶åæ‰¾å‡ºæœ€å¤§çš„v2ä¸ªçš„ä¸‹æ ‡
+        vector<double> select(count); // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„
         for (int i1 = 0; i1 < count; i1++) {
             select[i1] = change(gcj_data[i1]);
         }
-        // ÕÒ³öv2¸ö×î´óµÄÊıµÄÏÂ±ê£¬²¢´æÔÚÒ»¸öÊı×é
-        vector<double> arr(count); // Ê¹ÓÃvector¶¯Ì¬Êı×é
+        // æ‰¾å‡ºv2ä¸ªæœ€å¤§çš„æ•°çš„ä¸‹æ ‡ï¼Œå¹¶å­˜åœ¨ä¸€ä¸ªæ•°ç»„
+        vector<double> arr(count); // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„
         for (int i1 = 0; i1 < count; i1++) {
             arr[i1] = select[i1];
         }
-        vector<int> indices(v2); // Ê¹ÓÃvector¶¯Ì¬Êı×é
+        vector<int> indices(v2); // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„
         for (int i = 0; i < v2; ++i) {
             indices[i] = -1;
         }
         for (int i = 0; i < count; ++i) {
-            bool replaced = false; // ±ê¼ÇÊÇ·ñÌæ»»ÁËindicesÖĞµÄÔªËØ
+            bool replaced = false; // æ ‡è®°æ˜¯å¦æ›¿æ¢äº†indicesä¸­çš„å…ƒç´ 
             for (int j = 0; j < v2; ++j) {
-                // Èç¹ûindices[j]ÊÇ¿ÕµÄ£¬»òÕßµ±Ç°ÔªËØ±Èindices[j]Ö¸ÏòµÄÔªËØ´ó
+                // å¦‚æœindices[j]æ˜¯ç©ºçš„ï¼Œæˆ–è€…å½“å‰å…ƒç´ æ¯”indices[j]æŒ‡å‘çš„å…ƒç´ å¤§
                 if (indices[j] == -1 || arr[i] > arr[indices[j]]) {
-                    // ½«indicesÊı×éÖĞµÄÔªËØÏòºóÒÆ¶¯Ò»Î»£¨Èç¹ûĞèÒªµÄ»°£©
+                    // å°†indicesæ•°ç»„ä¸­çš„å…ƒç´ å‘åç§»åŠ¨ä¸€ä½ï¼ˆå¦‚æœéœ€è¦çš„è¯ï¼‰
                     for (int k = v2 - 1; k > j; --k) {
                         indices[k] = indices[k - 1];
                     }
@@ -149,125 +162,125 @@ int main2() {
                 }
             }
         }
-        // Ğ´Ò»¸ö¸ÄÕıÊı£¬ºóÃæ»¹ÒªÊä³ö
+        // å†™ä¸€ä¸ªæ”¹æ­£æ•°ï¼Œåé¢è¿˜è¦è¾“å‡º
         for (int i2 = 0; i2 < count; i2++) {
             gaizhengshu[i2] = v1;
             for (int i3 = 0; i3 < v2; i3++) {
                 if (i2 == indices[i3]) {
                     gaizhengshu[i2] = v1 + 1;
-                    // ²»¶Ô£¬ËäÈ»ÕâÀïĞ´µÄºÜÂÒ£¬µ«ÊÇÒÑ¾­ÔÚÉÏÃæµÄifÅĞ¶ÏÇø·ÖÁË±ÕºÏ²îÕı¸ºµÄÇé¿ö
+                    // ä¸å¯¹ï¼Œè™½ç„¶è¿™é‡Œå†™çš„å¾ˆä¹±ï¼Œä½†æ˜¯å·²ç»åœ¨ä¸Šé¢çš„ifåˆ¤æ–­åŒºåˆ†äº†é—­åˆå·®æ­£è´Ÿçš„æƒ…å†µ
                     break;
                 }
             }
         }
-        for (int i1 = 0; i1 < v2; i1++) { // ÕÒ³ö×î´óµÄÕâv2¸ö½Ç£¬È»ºó·ÖÅä³ı²»¾¡µÄÃë
+        for (int i1 = 0; i1 < v2; i1++) { // æ‰¾å‡ºæœ€å¤§çš„è¿™v2ä¸ªè§’ï¼Œç„¶ååˆ†é…é™¤ä¸å°½çš„ç§’
             gcj_data[indices[i1]] = addDMS(gcj_data[indices[i1]], DMS(0, 0, 1));
         }
     }
 #pragma endregion
 
 
-    cout << "½ÓÏÂÀ´ÊäÈë±ß³¤" << endl;
-    vector<double> length(count);       // Ê¹ÓÃvector¶¯Ì¬Êı×é
-    for (int i = 0; i < count-1; i++)   // ×¢ÒâÊÇcount-1
+    cout << "æ¥ä¸‹æ¥è¾“å…¥è¾¹é•¿" << endl;
+    vector<double> length(count);       // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„
+    for (int i = 0; i < count-1; i++)   // æ³¨æ„æ˜¯count-1
         cin >> length[i];
-    cout << "ÕâÊÇÆğÊ¼·½Î»½Ç" << endl;
+    cout << "è¿™æ˜¯èµ·å§‹æ–¹ä½è§’" << endl;
     output(originDMS);
-    cout << "ÕâÊÇÖÕ±ß·½Î»½Ç" << endl;
+    cout << "è¿™æ˜¯ç»ˆè¾¹æ–¹ä½è§’" << endl;
     output(endDMS);
-    // Êä³ö¸ÄÕıºóµÄ×ó½Ç
-    cout << "Êä³ö¸ÄÕıºóµÄ×ó½Ç" << endl;
+    // è¾“å‡ºæ”¹æ­£åçš„å·¦è§’
+    cout << "è¾“å‡ºæ”¹æ­£åçš„å·¦è§’" << endl;
     for (int i = 0; i < count; i++) {
         output(gcj_data[i]);
         cout << endl;
     }
 
-    vector<DMS> fwj(count + 1); // Ê¹ÓÃvector¶¯Ì¬Êı×é
+    vector<DMS> fwj(count + 1); // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„
     fwj[0] = originDMS;
-    cout << "ÕâÊÇ·½Î»½Ç" << endl;
+    cout << "è¿™æ˜¯æ–¹ä½è§’" << endl;
     for (int i = 0; i < count; i++) {
         fwj[i + 1] = subtractDMS(addDMS(fwj[i], gcj_data[i]), DMS(180, 0, 0));
         output(fwj[i + 1]);
-        cout << endl; // ÒòÎªExcelÖĞºÏ²¢µ¥Ôª¸ñµÄÎÊÌâ
+        cout << endl; // å› ä¸ºExcelä¸­åˆå¹¶å•å…ƒæ ¼çš„é—®é¢˜
     }
-    // Êä³ö¸ÄÕıÊı
-    cout << "Êä³ö¸ÄÕıÊı" << endl;
+    // è¾“å‡ºæ”¹æ­£æ•°
+    cout << "è¾“å‡ºæ”¹æ­£æ•°" << endl;
     for (int i = 0; i < count; i++) {
         cout << gaizhengshu[i] << endl << endl;
     }
 
-    // ¶È·ÖÃë×ª»¡¶È
-    vector<double> hd(count); // Ê¹ÓÃvector¶¯Ì¬Êı×é
+    // åº¦åˆ†ç§’è½¬å¼§åº¦
+    vector<double> hd(count); // ä½¿ç”¨vectoråŠ¨æ€æ•°ç»„
     for (int i = 0; i < count; i++) {
         hd[i] = change(fwj[i + 1]);
     }
 
-    double lengthsum = 0;// µ¼Ïß×Ü³¤
+    double lengthsum = 0;// å¯¼çº¿æ€»é•¿
     for (int i = 0; i < count-1; i++) {
         lengthsum += length[i];
     }
-    cout << "ÕâÊÇµ¼ÏßÈ«³¤ " << endl;
+    cout << "è¿™æ˜¯å¯¼çº¿å…¨é•¿ " << endl;
     cout << lengthsum << endl;
 
-    // ºá×ø±êÔöÁ¿
-    cout << "ÕâÊÇN×ø±êÔöÁ¿" << endl;
+    // æ¨ªåæ ‡å¢é‡
+    cout << "è¿™æ˜¯Nåæ ‡å¢é‡" << endl;
     for (int i = 0; i < count-1; i++) {
         cout << cos(hd[i]) * length[i] << endl << endl;
     }
     double nsum = 0;
     for (int i = 0; i < count-1; i++) {
         nsum += cos(hd[i]) * length[i];
-        //TODO £º¼ì²éÒ»ÏÂÕâÀïnsum±ÕºÏ²îËã·¨ÊÇ²»ÊÇÓĞÎÊÌâÑ½£¿
-        //×ÜÔöÁ¿ +£¨Ê¼-Ä©£©= ±ÕºÏ²î
-        //×ÜÔöÁ¿ - ±ÕºÏ²î =£¨Ä©-Ê¼£©
+        //TODO ï¼šæ£€æŸ¥ä¸€ä¸‹è¿™é‡Œnsumé—­åˆå·®ç®—æ³•æ˜¯ä¸æ˜¯æœ‰é—®é¢˜å‘€ï¼Ÿ
+        //æ€»å¢é‡ +ï¼ˆå§‹-æœ«ï¼‰= é—­åˆå·®
+        //æ€»å¢é‡ - é—­åˆå·® =ï¼ˆæœ«-å§‹ï¼‰
     }
     nsum += ori_n_2 - end_n_1;
-    cout << "ÕâÊÇN×ø±ê±ÕºÏ²î " << endl;
+    cout << "è¿™æ˜¯Nåæ ‡é—­åˆå·® " << endl;
     cout << nsum << endl;
-    // ·ÖÅä¸ÄÕıÊı
-    cout << "·´ºÅ·ÖÅä±ÕºÏ²î" << endl;
+    // åˆ†é…æ”¹æ­£æ•°
+    cout << "åå·åˆ†é…é—­åˆå·®" << endl;
     for (int i = 0; i < count-1; i++) {
         cout << -(length[i] / lengthsum) * nsum << endl << endl;
-        //TODO : ¿ÉÄÜ²»ÊÇ¸ù¾İ³¤¶ÈÖ±½Ó¼ÓÈ¨·ÖÅä£¬¶øÊÇ¸ù¾İÔöÁ¿±ÈÀı·ÖÅä
+        //TODO : å¯èƒ½ä¸æ˜¯æ ¹æ®é•¿åº¦ç›´æ¥åŠ æƒåˆ†é…ï¼Œè€Œæ˜¯æ ¹æ®å¢é‡æ¯”ä¾‹åˆ†é…
     }
-    cout << "ÕâÊÇ¸ÄÕıºóµÄN×ø±êÔöÁ¿" << endl;
+    cout << "è¿™æ˜¯æ”¹æ­£åçš„Nåæ ‡å¢é‡" << endl;
 
     for (int i = 0; i < count-1; i++) {
         cout << cos(hd[i]) * length[i] - (length[i] / lengthsum) * nsum << endl << endl;
-        //TODO : ¿ÉÄÜ²»ÊÇ¸ù¾İ³¤¶ÈÖ±½Ó¼ÓÈ¨·ÖÅä£¬¶øÊÇ¸ù¾İÔöÁ¿±ÈÀı·ÖÅä
+        //TODO : å¯èƒ½ä¸æ˜¯æ ¹æ®é•¿åº¦ç›´æ¥åŠ æƒåˆ†é…ï¼Œè€Œæ˜¯æ ¹æ®å¢é‡æ¯”ä¾‹åˆ†é…
     }
-    cout << "ÕâÊÇ³ıÆğËãµãÍâµÄN×ø±ê" << endl;
+    cout << "è¿™æ˜¯é™¤èµ·ç®—ç‚¹å¤–çš„Nåæ ‡" << endl;
     double newn = ori_n_2;
     for (int i = 0; i < count-1; i++) {
         newn += cos(hd[i]) * length[i] - (length[i] / lengthsum) * nsum;
         cout << newn << endl << endl;
     }
 
-    cout << "ÕâÊÇE×ø±êÔöÁ¿" << endl;
+    cout << "è¿™æ˜¯Eåæ ‡å¢é‡" << endl;
     for (int i = 0; i < count-1; i++) {
         cout << sin(hd[i]) * length[i] << endl << endl;
     }
     double esum = 0;
     for (int i = 0; i < count-1; i++) {
         esum += sin(hd[i]) * length[i];
-        // TODO £º»¹ÓĞÕâÀï
+        // TODO ï¼šè¿˜æœ‰è¿™é‡Œ
     }
     esum += ori_e_2 - end_e_1;
-    cout << "ÕâÊÇE×ø±ê±ÕºÏ²î " << endl << endl;
+    cout << "è¿™æ˜¯Eåæ ‡é—­åˆå·® " << endl << endl;
     cout << esum << endl;
-    // ·ÖÅä¸ÄÕıÊı
-    cout << "·´ºÅ·ÖÅä±ÕºÏ²î" << endl;
+    // åˆ†é…æ”¹æ­£æ•°
+    cout << "åå·åˆ†é…é—­åˆå·®" << endl;
     for (int i = 0; i < count-1; i++) {
         cout << -(length[i] / lengthsum) * esum << endl << endl;
-        //TODO : ¿ÉÄÜ²»ÊÇ¸ù¾İ³¤¶ÈÖ±½Ó¼ÓÈ¨·ÖÅä£¬¶øÊÇ¸ù¾İÔöÁ¿±ÈÀı·ÖÅä
+        //TODO : å¯èƒ½ä¸æ˜¯æ ¹æ®é•¿åº¦ç›´æ¥åŠ æƒåˆ†é…ï¼Œè€Œæ˜¯æ ¹æ®å¢é‡æ¯”ä¾‹åˆ†é…
     }
-    cout << "ÕâÊÇ¸ÄÕıºóµÄE×ø±êÔöÁ¿" << endl;
+    cout << "è¿™æ˜¯æ”¹æ­£åçš„Eåæ ‡å¢é‡" << endl;
 
     for (int i = 0; i < count-1; i++) {
         cout << sin(hd[i]) * length[i] - (length[i] / lengthsum) * esum << endl << endl;
-        //TODO : ¿ÉÄÜ²»ÊÇ¸ù¾İ³¤¶ÈÖ±½Ó¼ÓÈ¨·ÖÅä£¬¶øÊÇ¸ù¾İÔöÁ¿±ÈÀı·ÖÅä
+        //TODO : å¯èƒ½ä¸æ˜¯æ ¹æ®é•¿åº¦ç›´æ¥åŠ æƒåˆ†é…ï¼Œè€Œæ˜¯æ ¹æ®å¢é‡æ¯”ä¾‹åˆ†é…
     }
-    cout << "ÕâÊÇ³ıÆğËãµãÍâµÄE×ø±ê" << endl;
+    cout << "è¿™æ˜¯é™¤èµ·ç®—ç‚¹å¤–çš„Eåæ ‡" << endl;
     double newe = ori_e_2;
     for (int i = 0; i < count-1; i++) {
         newe += sin(hd[i]) * length[i] - (length[i] / lengthsum) * esum;
